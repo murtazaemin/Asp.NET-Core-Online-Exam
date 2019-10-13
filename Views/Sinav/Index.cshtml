@@ -1,0 +1,260 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="sinav" class="container">
+    <h1 class="display-4">Sınav Oluştur</h1>
+
+    @{
+        var basliklar = ViewBag.basliklar;
+        var yazilar = ViewBag.yazilar;
+        int i;
+    }
+
+    <form action="/Sinav/Kaydet/" method="post" name="formsinav" id="formsinav">
+        <div class="form-group">
+
+            <select name="baslik" id="baslik" class="form-control">
+                @for (i = 0; i < 5; i++)
+                {
+                    <option value="@i">@basliklar[i]</option>
+                }
+            </select>
+
+
+        </div>
+        <div id="textarea" class="form-group">
+            <textarea style="background-color:#e9ecef;" class="form-control" rows="15" id="yazi" name="yazi" form="formsinav">@yazilar[0]</textarea>
+        </div>
+        <div class="form-group">
+            <label for="soru1">Soru-1</label>
+            <input required type="text" class="form-control" name="soru1" id="soru1" placeholder="Soru 1">
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-1">
+                <label for="cevap1a">A-)</label>
+            </div>
+            <div class="col-md-5">
+                <input required type="text" class="form-control" name="cevap1a" id="cevap1a">
+            </div>
+            <div class="col-md-1">
+                <label for="cevap1b">B-)</label>
+            </div>
+            <div class="col-md-5">
+                <input required type="text" class="form-control" name="cevap1b" id="cevap1b">
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <div class=" col-md-1">
+                <label for="cevap1c">C-)</label>
+            </div>
+            <div class=" col-md-5">
+                <input required type="text" class="form-control" name="cevap1c" id="cevap1c">
+            </div>
+            <div class=" col-md-1">
+                <label for="cevap1d">D-)</label>
+            </div>
+            <div class=" col-md-5">
+                <input required type="text" class="form-control" name="cevap1d" id="cevap1d">
+            </div>
+
+        </div>
+
+        <div class="form-group row ">
+
+            <div class="col-md-6 offset-md-3">
+                <select required name="cevap1" id="cevap1" class="form-control">
+                    <option value="">Doğru Cevap Seçin</option>
+                    <option value="a">Doğru Cevap: A</option>
+                    <option value="b">Doğru Cevap: B</option>
+                    <option value="c">Doğru Cevap: C</option>
+                    <option value="d">Doğru Cevap: D</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="soru2">Soru-2</label>
+            <input required type="text" class="form-control" name="soru2" id="soru2" placeholder="Soru 2">
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-1">
+                <label for="cevap2a">A-)</label>
+            </div>
+            <div class="col-md-5">
+                <input required type="text" class="form-control" name="cevap2a" id="cevap2a">
+            </div>
+            <div class="col-md-1">
+                <label for="cevap2b">B-)</label>
+            </div>
+            <div class="col-md-5">
+                <input required type="text" class="form-control" name="cevap2b" id="cevap2b">
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <div class=" col-md-1">
+                <label for="cevap2c">C-)</label>
+            </div>
+            <div class=" col-md-5">
+                <input required type="text" class="form-control" name="cevap2c" id="cevap2c">
+            </div>
+            <div class=" col-md-1">
+                <label for="cevap2d">D-)</label>
+            </div>
+            <div class=" col-md-5">
+                <input required type="text" class="form-control" name="cevap2d" id="cevap2d">
+            </div>
+
+        </div>
+
+        <div class="form-group row ">
+
+            <div class="col-md-6 offset-md-3">
+                <select required name="cevap2" id="cevap2" class="form-control">
+                    <option value="">Doğru Cevap Seçin</option>
+                    <option value="a">Doğru Cevap: A</option>
+                    <option value="b">Doğru Cevap: B</option>
+                    <option value="c">Doğru Cevap: C</option>
+                    <option value="d">Doğru Cevap: D</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="soru3">Soru-3</label>
+            <input required type="text" class="form-control" name="soru3" id="soru3" placeholder="Soru 3">
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-1">
+                <label for="cevap3a">A-)</label>
+            </div>
+            <div class="col-md-5">
+                <input required type="text" class="form-control" name="cevap3a" id="cevap3a">
+            </div>
+            <div class="col-md-1">
+                <label for="cevap3b">B-)</label>
+            </div>
+            <div class="col-md-5">
+                <input required type="text" class="form-control" name="cevap3b" id="cevap3b">
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <div class=" col-md-1">
+                <label for="cevap3c">C-)</label>
+            </div>
+            <div class=" col-md-5">
+                <input required type="text" class="form-control" name="cevap3c" id="cevap3c">
+            </div>
+            <div class=" col-md-1">
+                <label for="cevap3d">D-)</label>
+            </div>
+            <div class=" col-md-5">
+                <input required type="text" class="form-control" name="cevap3d" id="cevap3d">
+            </div>
+
+        </div>
+
+        <div class="form-group row ">
+
+            <div class="col-md-6 offset-md-3">
+                <select required name="cevap3" id="cevap3" class="form-control">
+                    <option value="">Doğru Cevap Seçin</option>
+                    <option value="a">Doğru Cevap: A</option>
+                    <option value="b">Doğru Cevap: B</option>
+                    <option value="c">Doğru Cevap: C</option>
+                    <option value="d">Doğru Cevap: D</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="soru4">Soru-4</label>
+            <input required type="text" class="form-control" name="soru4" id="soru4" placeholder="Soru 4">
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-1">
+                <label for="cevap4a">A-)</label>
+            </div>
+            <div class="col-md-5">
+                <input required type="text" class="form-control" name="cevap4a" id="cevap4a">
+            </div>
+            <div class="col-md-1">
+                <label for="cevap4b">B-)</label>
+            </div>
+            <div class="col-md-5">
+                <input required type="text" class="form-control" name="cevap4b" id="cevap4b">
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <div class=" col-md-1">
+                <label for="cevap4c">C-)</label>
+            </div>
+            <div class=" col-md-5">
+                <input required type="text" class="form-control" name="cevap4c" id="cevap4c">
+            </div>
+            <div class=" col-md-1">
+                <label for="cevap4d">D-)</label>
+            </div>
+            <div class=" col-md-5">
+                <input required type="text" class="form-control" name="cevap4d" id="cevap4d">
+            </div>
+
+        </div>
+
+        <div class="form-group row ">
+
+            <div class="col-md-6 offset-md-3">
+                <select required name="cevap4" id="cevap4" class="form-control">
+                    <option value="">Doğru Cevap Seçin</option>
+                    <option value="a">Doğru Cevap: A</option>
+                    <option value="b">Doğru Cevap: B</option>
+                    <option value="c">Doğru Cevap: C</option>
+                    <option value="d">Doğru Cevap: D</option>
+                </select>
+            </div>
+
+        </div>
+        <input type="hidden" name="baslik1" value="@basliklar[0]">
+        <input type="hidden" name="baslik2" value="@basliklar[1]">
+        <input type="hidden" name="baslik3" value="@basliklar[2]">
+        <input type="hidden" name="baslik4" value="@basliklar[3]">
+        <input type="hidden" name="baslik5" value="@basliklar[4]">
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Sınavı Oluştur</button>
+        </div>
+
+    </form>
+
+
+</div>
+<script>
+
+    var text = new Array();
+    text[0] = '@yazilar[0]';
+    text[1] = '@yazilar[1]';
+    text[2] = '@yazilar[2]';
+    text[3] = '@yazilar[3]';
+    text[4] = '@yazilar[4]';
+
+    jQuery(document).ready(function () {
+        jQuery('#baslik').change(function () {
+        jQuery('#yazi').remove();
+
+            var id = jQuery(this).val();
+
+        jQuery('#textarea').append('<textarea rows="15" style="background-color:#e9ecef;" class="form-control" id="yazi"  name="yazi" form="formsinav" >'+text[id]+'</textarea>');
+        })
+    });
+
+</script>
+

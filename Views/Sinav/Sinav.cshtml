@@ -1,0 +1,159 @@
+﻿
+@{
+    ViewData["Title"] = "Sinav";
+}
+
+<div id="sinav" class="container">
+
+    @{
+        var baslik = ViewBag.baslik;
+        var yazi = ViewBag.yazi;
+        var sorular = ViewBag.sorular;
+        var cevaplar = ViewBag.cevaplar;
+        var dogrucevaplar = ViewBag.dogrucevaplar;
+    }
+
+    <form>
+        <div class="form-group row col-md-12">
+
+            <h4 class="m-auto">@baslik</h4>
+
+
+        </div>
+        <div class="form-group row col-md-12">
+            <div class="col-md-12">
+                <p>@yazi</p>
+            </div>
+        </div>
+
+
+
+        <div class="form-group row col-md-12">
+
+            <div id="soru1" class="col-md-6">
+                <p style="word-wrap:break-word;">1-) @sorular[0]</p>
+                <input type="radio" value="a" id="cevap1a" name="cevap1">
+                <label id="label1a" name="label1" for="cevap1a">A-) @cevaplar[0]</label><br />
+                <input type="radio" value="b" id="cevap1b" name="cevap1">
+                <label id="label1b" name="label1" for="cevap1b">B-) @cevaplar[1]</label><br />
+                <input type="radio" value="c" id="cevap1c" name="cevap1">
+                <label id="label1c" name="label1" for="cevap1c">C-) @cevaplar[2]</label> <br />
+                <input type="radio" value="d" id="cevap1d" name="cevap1">
+                <label id="label1d" name="label1" for="cevap1d">D-) @cevaplar[3]</label>
+            </div>
+            <div id="soru2" class="col-md-6">
+                <p style="word-wrap:break-word;">2-) @sorular[1]</p>
+                <input type="radio" value="a" id="cevap2a" name="cevap2">
+                <label id="label2a" name="label2" for="cevap2a">A-) @cevaplar[4]</label><br />
+                <input type="radio" value="b" id="cevap2b" name="cevap2">
+                <label id="label2b" name="label2" for="cevap2b">B-) @cevaplar[5]</label><br />
+                <input type="radio" value="c" id="cevap2c" name="cevap2">
+                <label id="label2c" name="label2" for="cevap2c">C-) @cevaplar[6]</label> <br />
+                <input type="radio" value="d" id="cevap2d" name="cevap2">
+                <label id="label2d" name="label2" for="cevap2d">D-) @cevaplar[7]</label>
+            </div>
+
+
+        </div>
+        <div class="form-group row col-md-12">
+
+            <div id="soru3" class="col-md-6">
+                <p style="word-wrap:break-word;">3-) @sorular[2]</p>
+                <input type="radio" value="a" id="cevap3a" name="cevap3">
+                <label id="label3a" name="label3" for="cevap3a">A-) @cevaplar[8]</label><br />
+                <input type="radio" value="b" id="cevap3b" name="cevap3">
+                <label id="label3b" name="label3" for="cevap3b">B-) @cevaplar[9]</label><br />
+                <input type="radio" value="c" id="cevap3c" name="cevap3">
+                <label id="label3c" name="label3" for="cevap3c">C-) @cevaplar[10]</label> <br />
+                <input type="radio" value="d" id="cevap3d" name="cevap3">
+                <label id="label3d" name="label3" for="cevap3d">D-) @cevaplar[11]</label>
+            </div>
+            <div id="soru4" class="col-md-6">
+                <p style="word-wrap:break-word;">4-) @sorular[3]</p>
+                <input type="radio" value="a" id="cevap4a" name="cevap4">
+                <label id="label4a" name="label4" for="cevap4a">A-) @cevaplar[12]</label><br />
+                <input type="radio" value="b" id="cevap4b" name="cevap4">
+                <label id="label4b" name="label4" for="cevap4b">B-) @cevaplar[13]</label><br />
+                <input type="radio" value="c" id="cevap4c" name="cevap4">
+                <label id="label4c" name="label4" for="cevap4c">C-) @cevaplar[14]</label> <br />
+                <input type="radio" value="d" id="cevap4d" name="cevap4">
+                <label id="label4d" name="label4" for="cevap4d">D-) @cevaplar[15]</label>
+            </div>
+
+
+        </div>
+
+        <div class="text-center">
+            <button type="button" onclick="kontrol()" class="btn btn-primary">Sınavı Tamamla</button>
+        </div>
+
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("label").click(function () {
+            var name = $(this).attr('name');
+
+
+
+            $("label[name='" + name + "']").removeAttr("class");
+            $(this).addClass('secim');
+
+
+        });
+
+    });
+
+
+    function kontrol() {
+        var dogrucevap = new Array();
+        dogrucevap[0] = '@dogrucevaplar[0]';
+        dogrucevap[1] = '@dogrucevaplar[1]';
+        dogrucevap[2] = '@dogrucevaplar[2]';
+        dogrucevap[3] = '@dogrucevaplar[3]';
+        
+        var cevap1 = document.getElementsByName('cevap1');
+        var cevap2 = document.getElementsByName('cevap2');
+        var cevap3 = document.getElementsByName('cevap3');
+        var cevap4 = document.getElementsByName('cevap4');
+
+        $("label").removeAttr("class");
+
+        for (var i = 0, length = 4; i < length; i++) {
+            if (cevap1[i].checked) {                    
+                var kontrol1 = cevap1[i].value;
+                if (kontrol1 == dogrucevap[0])
+                    $("label[id='label1" + kontrol1 + "']").addClass("dogru");
+                else
+                    $("label[id='label1" + kontrol1 + "']").addClass("yanlis");
+            }
+            if (cevap2[i].checked) {
+                var kontrol2 = cevap2[i].value;
+                if (kontrol2 == dogrucevap[1])
+                    $("label[id='label2" + kontrol2 + "']").addClass("dogru");
+                else
+                    $("label[id='label2" + kontrol2 + "']").addClass("yanlis");                   
+            }
+            if (cevap3[i].checked) {                    
+                var kontrol3 = cevap3[i].value;
+                if (kontrol3 == dogrucevap[2])
+                    $("label[id='label3" + kontrol3 + "']").addClass("dogru");
+                else
+                    $("label[id='label3" + kontrol3 + "']").addClass("yanlis");             
+            }
+            if (cevap4[i].checked) {
+                var kontrol4 = cevap4[i].value;
+                if (kontrol4 == dogrucevap[3])
+                    $("label[id='label4" + kontrol4 + "']").addClass("dogru");
+                else
+                    $("label[id='label4" + kontrol4 + "']").addClass("yanlis");
+            }
+
+        }
+         
+        
+    }
+</script>
+
+

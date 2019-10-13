@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Liste";
+}
+
+@{
+    var id = ViewBag.id;
+    var baslik = ViewBag.baslik;
+    var tarih = ViewBag.tarih;
+    int count = Enumerable.Count(ViewBag.id);
+}
+<h2>Sınav Listesi</h2>
+
+<table class="table table-bordered" id="SinavListe">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>BAŞLIK</th>
+            <th>TARİH</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @for (int i = 0; i < count; i++)
+        {
+            <tr>
+                <td>@id[i]</td>
+                <td><a href="/Sinav/Sinav/@id[i]">@baslik[i]</a></td>
+                <td>@tarih[i]</td>
+                <td><button class="btn btn-danger SinavSil" data-id="@id[i]">Sil</button> </td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>
+
